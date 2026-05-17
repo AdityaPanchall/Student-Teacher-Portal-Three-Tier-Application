@@ -12,6 +12,8 @@ RUN npm ci --only=production && npm cache clean --force
 # Copy the full application (after deps installed to leverage cache)
 COPY . .
 
+#--------------------------------------------
+#Second Stage
 FROM node:18-alpine
 
 # Create non-root user for security
