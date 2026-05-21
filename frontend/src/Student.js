@@ -33,7 +33,7 @@ function Student() {
 
   const getData = () => {
     setLoading(true);
-    fetch(`${API_BASE_URL}/student`)
+    fetch(`${API_BASE_URL}/api/student`)
       .then((res) => res.json())
       .then((res) => {
         console.log('Fetched students:', res);
@@ -60,7 +60,7 @@ function Student() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(studentData),
     };
-    fetch(`${API_BASE_URL}/addstudent`, requestOptions)
+    fetch(`${API_BASE_URL}/api/addstudent`, requestOptions)
       .then((res) => res.json())
       .then(() => {
         toast({ title: 'Student added', status: 'success' });
@@ -71,7 +71,7 @@ function Student() {
   };
 
   const handleDelete = (id) => {
-    fetch(`${API_BASE_URL}/student/${id}`, { method: 'DELETE' })
+    fetch(`${API_BASE_URL}/api/student/${id}`, { method: 'DELETE' })
       .then((res) => res.json())
       .then(() => {
         toast({ title: 'Deleted', status: 'info' });
